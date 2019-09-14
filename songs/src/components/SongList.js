@@ -45,10 +45,19 @@ const mapStateToProps = (state) => {
     return { songs: state.songs };
 };
 
+// note that in dispatch, selectSong is action creator
+// selectSong key in return statement will be referenced as this.props.selectSong
+const mapDispatchToProps = (dispatch) => {
+    return {
+        selectSong: (song) => dispatch(selectSong(song))
+    }
+}
+
 /*
     connect function will take selectSong action creator
     and pass it into our component as a prop.
     connect takes action and gives it into dispatch function for us
 */
 
-export default connect(mapStateToProps, { selectSong })(SongList);
+// export default connect(mapStateToProps, { selectSong })(SongList);
+export default connect(mapStateToProps, mapDispatchToProps)(SongList);
