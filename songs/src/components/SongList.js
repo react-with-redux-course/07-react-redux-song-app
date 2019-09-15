@@ -8,6 +8,10 @@ class SongList extends Component {
         return this.props.songs.map((song) => {
             return (
                 <div className="item" key={song.title}>
+                    <div className="content">
+                        {song.title}
+                    </div>
+                    
                     <div className="right floated content">
                         <button
                             className="ui button primary"
@@ -15,10 +19,6 @@ class SongList extends Component {
                         >
                             Select
                         </button>
-                    </div>
-
-                    <div className="content">
-                        {song.title}
                     </div>
                 </div>
             );
